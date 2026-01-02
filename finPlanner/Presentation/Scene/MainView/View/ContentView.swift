@@ -5,7 +5,10 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .top) {
             
-            HeaderView()
+            
+            HeaderView(page: HeaderViewContent(totalPrice: "1231323", title: "Сумма долга", date: "15 декабря", pageType: .main), action: {
+                //
+            })
                 .zIndex(1)
             
             ScrollView(showsIndicators: false){
@@ -18,7 +21,9 @@ struct ContentView: View {
                         PaymentCard()
                         PaymentCard()
                     }
-                }.padding(.top, 120)
+                }
+                .padding(.top, 120)
+                .padding(.bottom, 80)
             }
             
             

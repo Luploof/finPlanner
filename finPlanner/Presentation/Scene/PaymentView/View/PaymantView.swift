@@ -3,10 +3,12 @@ import SwiftUI
 struct PaymаntView: View {
     var body: some View {
         ZStack(alignment: .top){
-            HeaderView(page: HeaderViewContent(totalPrice: "12313", title: "Платежи", date: "В декабре 2025", pageType: .paymantList))
-                .zIndex(1)
+            HeaderView(page: HeaderViewContent(totalPrice: "12313", title: "Платежи", date: "В декабре 2025", pageType: .paymantList), action: {
+                //
+            })
+            .zIndex(1)
             
-            ScrollView{
+            ScrollView(showsIndicators: false){
                 VStack(alignment: .leading, spacing: 19){
                     PaymentCard()
                     PaymentCard()

@@ -1,19 +1,21 @@
 import SwiftUI
 
 struct SolidButton: View {
+    var text: String
+    var textColor: Color
     var body: some View {
         Button{
             //
         } label: {
-            Text("Подробнее")
+            Text("\(text)")
                 .roboto(font: .light, size: 14)
-                .foregroundStyle(.appBlack)
+                .foregroundStyle(textColor)
                 .padding(.top, 12)
                 .padding(.bottom, 16)
                 .frame(maxWidth: .infinity)
                 .overlay{
                     Capsule()
-                        .stroke(.appBlack, lineWidth: 1)
+                        .stroke(textColor, lineWidth: 1)
                 }
                 .clipShape(.capsule)
             
