@@ -1,24 +1,32 @@
-//
-//  ContentView.swift
-//  finPlanner
-//
-//  Created by admin on 1.01.26.
-//
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, girl!")
+        ZStack(alignment: .top) {
+            
+            HeaderView()
+                .zIndex(1)
+            
+            ScrollView(showsIndicators: false){
+                VStack(alignment: .leading, spacing: 19) {
+                    MainViewContentHeader()
+                    
+                    VStack(alignment: .leading, spacing: 19){
+                        PaymentCard()
+                        PaymentCard()
+                        PaymentCard()
+                        PaymentCard()
+                    }
+                }.padding(.top, 120)
+            }
+            
+            
         }
-        .padding()
+        .padding(.horizontal, 20)
+        .background(.appBlack)
+        
     }
 }
 
-#Preview {
-    ContentView()
-}
+

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HeaderView: View{
     var body: some View {
-        VStack{
+        VStack(alignment: .leading, spacing: 0){
             HStack{
                 Text("12300 BYN")
                     .roboto(font: .black, size: 27)
@@ -26,10 +26,16 @@ struct HeaderView: View{
                 }
             
             }
-            VStack{
-                Text("")
-                Text("")
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Сумма долга")
+                    .roboto(font: .black, size: 32)
+                Text("15 декабря")
+                    .roboto(font: .light, size: 20)
             }
+            .foregroundStyle(.appYellow)
         }
+        .padding(.bottom, 20)
+        .background(.appBlack)
     }
+        
 }
