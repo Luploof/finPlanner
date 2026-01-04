@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State var selectionPage:TabPage = .paymantList
+    @State var selectionPage:TabPage = .main
     init() {
         UITabBar.appearance().isHidden = true
     }

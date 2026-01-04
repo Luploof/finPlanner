@@ -82,8 +82,8 @@ struct DetailsView: View {
             
             
             VStack(alignment: .leading, spacing: 15){
-                FullButton(text: "Закрыть досрочно", textColor: .appBlack, fillColor: .appYellow)
-                SolidButton(text: "Удалить последний платеж", textColor: .appYellow)
+                SolidButton(text: "Закрыть досрочно", textColor: .appBlack, solidColor: .appYellow)
+                SolidButton(text: "Удалить последний платеж", textColor: .appYellow, solidColor: .appYellow, isFull: false)
                 
             }
             

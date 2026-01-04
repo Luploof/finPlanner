@@ -40,8 +40,8 @@ struct PaymentCard: View {
             }
             
             HStack(spacing: 4){
-                FullButton(text: "Оплатить", textColor: .white, fillColor: .appBlack)
-                SolidButton(text: "Подробнее", textColor: .appBlack)
+                SolidButton(text: "Оплатить", textColor: .white, solidColor: .appBlack)
+                SolidButton(text: "Подробнее", textColor: .appBlack, solidColor: .appBlack, isFull: false)
             }
         }
         .padding(.horizontal, 15)

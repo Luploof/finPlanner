@@ -3,9 +3,12 @@ import SwiftUI
 struct SolidButton: View {
     var text: String
     var textColor: Color
+    var solidColor: Color
+    var isFull: Bool = true
+    var action: (()->Void)?
     var body: some View {
         Button{
-            //
+            action?()
         } label: {
             Text("\(text)")
                 .roboto(font: .light, size: 14)
@@ -13,9 +16,10 @@ struct SolidButton: View {
                 .padding(.top, 12)
                 .padding(.bottom, 16)
                 .frame(maxWidth: .infinity)
+                .background(isFull ? solidColor : nil)
                 .overlay{
                     Capsule()
-                        .stroke(textColor, lineWidth: 1)
+                        .stroke(solidColor, lineWidth: 1)
                 }
                 .clipShape(.capsule)
             
