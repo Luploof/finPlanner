@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct DetailsView: View {
+    @Binding var path: NavigationPath
     @State var isNotificationSelected:Bool = false
     var body: some View {
         VStack(alignment: .leading, spacing: 20){
@@ -16,7 +17,7 @@ struct DetailsView: View {
                         .foregroundStyle(.appYellow)
                         .roboto(font: .regular, size: 16)
                 }
-                .padding(.vertical, 30)
+                .padding(.vertical, 20)
                 
                 VStack(alignment: .leading, spacing: 26) {
                     VStack(alignment: .leading, spacing: 17) {
@@ -90,18 +91,17 @@ struct DetailsView: View {
         }
         .padding(.horizontal, 16)
         .background(.appBlack)
+        .navigationBarHidden(true)
     }
 }
 
-#Preview {
-    DetailsView()
-}
+
 
 extension DetailsView {
     var header: some View {
         HStack{
             Button{
-                //
+                path.removeLast()
             } label: {
                 Image(systemName: "chevron.left")
                     .resizable()

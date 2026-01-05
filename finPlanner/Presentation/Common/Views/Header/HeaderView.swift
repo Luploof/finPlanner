@@ -2,7 +2,8 @@ import SwiftUI
 
 struct HeaderView: View{
     var page: HeaderViewContent
-    var action: () -> Void
+    @Binding var date: Date
+    var action: (() -> Void)?
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             HStack{
@@ -14,7 +15,7 @@ struct HeaderView: View{
                     
                 if page.pageType == .main {
                     Button{
-                        action()
+                        action?()
                     } label: {
                         ZStack{
                             Circle()
@@ -32,22 +33,26 @@ struct HeaderView: View{
             }
             VStack(alignment: .leading, spacing: 2) {
                 HStack{
-                    Text("\(page.title)")
+                    Text(page.title)
                         .roboto(font: .black, size: 32)
                     Spacer()
                     
-                    if page.pageType == .paymantList {
-                        Button{
-                            action()
-                        }label: {
-                            Image(systemName: "calendar")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 25)
+                    if page.pageType == .paymantList{
+                        HStack(spacing: 4){
+                            DatePicker("", selection: $date, displayedComponents: [.date])
+                                .frame(width: 25, height: 25)
+                                .clipped()
+                                .overlay{
+                                    Image(systemName: "calendar")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 25)
+                                }
                         }
+                       
                     }
                 }
-                Text("\(page.date)")
+                Text(page.date)
                     .roboto(font: .light, size: 20)
             }
             .foregroundStyle(.appYellow)

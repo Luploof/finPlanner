@@ -8,11 +8,22 @@ extension Date {
         return formatter
     }()
     
+    static let withoutDayMonthFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.dateFormat = "MMMM YYYY"
+        return formatter
+    }()
+    
     var dayMonthYears: String {
         Self.dayMonthFormatter.string(from: self)
     }
     
     var day: Int {
         Calendar.current.component(.day, from: self)
+    }
+    
+    var withoutDayYears: String {
+        Self.withoutDayMonthFormatter.string(from: self)
     }
 }

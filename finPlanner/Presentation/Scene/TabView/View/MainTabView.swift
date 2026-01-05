@@ -1,17 +1,19 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State var selectionPage:TabPage = .main
-    init() {
+    @Binding var path: NavigationPath
+    @State var selectionPage:TabPage = .paymantList
+    init(path: Binding<NavigationPath>) {
         UITabBar.appearance().isHidden = true
+        self._path = path
     }
     
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectionPage){
-                ContentView()
+                ContentView(path: $path)
                     .tag(TabPage.main)
-                PaymаntView()
+                PaymаntView(path: $path)
                     .tag(TabPage.paymantList)
             }
             HStack(spacing: 10){
@@ -29,8 +31,5 @@ struct MainTabView: View {
     }
 }
 
-#Preview {
-    MainTabView()
-}
 
 
