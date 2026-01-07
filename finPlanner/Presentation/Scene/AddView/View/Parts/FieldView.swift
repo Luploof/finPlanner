@@ -4,6 +4,7 @@ struct FieldView: View {
     var placeholder: String
     @Binding var text:String
     var isTextField: Bool = true
+    var isNumber: Bool = false
     var body: some View {
         VStack(alignment: .leading, spacing: 16){
             Text(placeholder)
@@ -15,6 +16,8 @@ struct FieldView: View {
                     .frame(height: 48)
                     .background(.white)
                     .clipShape(Capsule())
+                    .keyboardType(isNumber ? .decimalPad : .default)
+                    .foregroundStyle(.black)
                     .overlay(
                         Capsule()
                             .stroke(.appMint, lineWidth: 2)
@@ -24,7 +27,7 @@ struct FieldView: View {
             } else {
                 TextEditor(text: $text)
                     .frame(height: 154)
-                    .background(.white)
+                    .foregroundStyle(.black)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .overlay{
                         RoundedRectangle(cornerRadius: 20)

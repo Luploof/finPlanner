@@ -1,6 +1,6 @@
 
 import Foundation
-enum PayType {
+enum PayType: Int {
     case monthly
     case oneTime
 }
